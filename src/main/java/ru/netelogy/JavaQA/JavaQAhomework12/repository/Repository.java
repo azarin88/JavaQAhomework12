@@ -1,4 +1,4 @@
-package ru.netelogy.JavaQA.JavaQAhomework12;
+package ru.netelogy.JavaQA.JavaQAhomework12.repository;
 
 
 
