@@ -14,6 +14,8 @@ public class RepositoryTest {
     Item item6 = new Item(6, "Тролли. Мировой тур");
     Item item7 = new Item(7, "Номер один");
 
+
+
     @Test
     public void testAddNull() {
         Repository repository = new Repository();
@@ -95,7 +97,7 @@ public class RepositoryTest {
 
     @Test
     public void testFindLastWithNull() {
-        Repository repository = new Repository();
+        Repository repository = new Repository(0);
         repository.add(item1);
         repository.add(item2);
         repository.add(item3);
@@ -104,13 +106,13 @@ public class RepositoryTest {
         repository.add(item6);
         repository.add(item7);
         Item[] expected = new Item[]{};
-        Item[] actual = repository.findLast(0);
+        Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void testFindLastWithOneItem() {
-        Repository repository = new Repository();
+        Repository repository = new Repository(1);
         repository.add(item1);
         repository.add(item2);
         repository.add(item3);
@@ -119,13 +121,13 @@ public class RepositoryTest {
         repository.add(item6);
         repository.add(item7);
         Item[] expected = new Item[]{item7};
-        Item[] actual = repository.findLast(1);
+        Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void testFindLastWithTwoItem() {
-        Repository repository = new Repository();
+        Repository repository = new Repository(2);
         repository.add(item1);
         repository.add(item2);
         repository.add(item3);
@@ -134,13 +136,13 @@ public class RepositoryTest {
         repository.add(item6);
         repository.add(item7);
         Item[] expected = new Item[]{item7, item6};
-        Item[] actual = repository.findLast(2);
+        Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void testFindLastWithSixItem() {
-        Repository repository = new Repository();
+        Repository repository = new Repository(6);
         repository.add(item1);
         repository.add(item2);
         repository.add(item3);
@@ -149,13 +151,13 @@ public class RepositoryTest {
         repository.add(item6);
         repository.add(item7);
         Item[] expected = new Item[]{item7, item6, item5, item4, item3, item2};
-        Item[] actual = repository.findLast(6);
+        Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void testFindLastWithSevenItem() {
-        Repository repository = new Repository();
+        Repository repository = new Repository(7);
         repository.add(item1);
         repository.add(item2);
         repository.add(item3);
@@ -164,13 +166,13 @@ public class RepositoryTest {
         repository.add(item6);
         repository.add(item7);
         Item[] expected = new Item[]{item7, item6, item5, item4, item3, item2, item1};
-        Item[] actual = repository.findLast(7);
+        Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 
     @Test
     public void testFindLastWithEightItem() {
-        Repository repository = new Repository();
+        Repository repository = new Repository(8);
         repository.add(item1);
         repository.add(item2);
         repository.add(item3);
@@ -179,14 +181,14 @@ public class RepositoryTest {
         repository.add(item6);
         repository.add(item7);
         Item[] expected = new Item[]{item7, item6, item5, item4, item3, item2, item1};
-        Item[] actual = repository.findLast(8);
+        Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 
 
     @Test
     public void testFindLastWithMinusOneItem() {
-        Repository repository = new Repository();
+        Repository repository = new Repository(-1);
         repository.add(item1);
         repository.add(item2);
         repository.add(item3);
@@ -195,7 +197,7 @@ public class RepositoryTest {
         repository.add(item6);
         repository.add(item7);
         Item[] expected = new Item[]{item7, item6, item5, item4, item3, item2, item1};
-        Item[] actual = repository.findLast(-1);
+        Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
 }
