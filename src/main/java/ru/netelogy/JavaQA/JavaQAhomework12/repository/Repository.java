@@ -5,10 +5,13 @@ public class Repository {
     private Item[] items = new Item[0];
     private int lastItem = 5;
 
-    public Repository() {}
+    public Repository() {
+    }
+
     public Repository(int lastItem) {
-       this.lastItem = lastItem;
-   }
+
+        this.lastItem = lastItem;
+    }
 
     public void add(Item item) {
         Item[] newItems = new Item[items.length + 1];
@@ -24,18 +27,10 @@ public class Repository {
     }
 
     public Item[] findLast() {
-        if (lastItem >= 0 && lastItem < items.length) {
-            Item[] lastItems = new Item[lastItem];
-            for (int i = 0; i < lastItems.length; i++) {
-                lastItems[i] = items[items.length - i - 1];
-            }
-            return lastItems;
-        } else {
-            Item[] lastItems = new Item[items.length];
-            for (int i = 0; i < items.length; i++) {
-                lastItems[i] = items[items.length - i - 1];
-            }
-            return lastItems;
+        Item[] lastItems = new Item[lastItem];
+        for (int i = 0; i < lastItems.length; i++) {
+            lastItems[i] = items[items.length - i - 1];
         }
+        return lastItems;
     }
 }
