@@ -169,5 +169,22 @@ public class RepositoryTest {
         Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
-
+    @Test
+    public void testFindLastAboveLimit() {
+        Repository repository = new Repository(7);
+        repository.add(item1);
+        repository.add(item2);
+        Item[] expected = null;
+        Item[] actual = repository.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+    }
+    @Test
+    public void testFindLastBelowLimit() {
+        Repository repository = new Repository(-2);
+        repository.add(item1);
+        repository.add(item2);
+        Item[] expected = null;
+        Item[] actual = repository.findLast();
+        Assertions.assertArrayEquals(expected, actual);
+    }
 }
