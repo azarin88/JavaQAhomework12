@@ -27,14 +27,16 @@ public class Repository {
     }
 
     public Item[] findLast() {
-
-        if (lastItem <= items.length && lastItem >= 0) {
-            Item[] lastItems = new Item[lastItem];
-            for (int i = 0; i < lastItems.length; i++) {
-                lastItems[i] = items[items.length - i - 1];
-            }
-            return lastItems;
+        int lastItem;
+        if (this.lastItem <= items.length && this.lastItem >= 0) {
+            lastItem = this.lastItem;
+        } else {
+            lastItem = items.length;
         }
-        return null;
+        Item[] lastItems = new Item[lastItem];
+        for (int i = 0; i < lastItems.length; i++) {
+            lastItems[i] = items[items.length - i - 1];
+        }
+        return lastItems;
     }
 }

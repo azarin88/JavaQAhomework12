@@ -1,7 +1,6 @@
 package ru.netelogy.JavaQA.JavaQAhomework12.repository;
 
 
-
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -15,12 +14,9 @@ public class RepositoryTest {
     Item item7 = new Item(7, "Номер один");
 
 
-
     @Test
     public void testAddNull() {
         Repository repository = new Repository();
-
-
         Item[] expected = new Item[]{};
         Item[] actual = repository.findAll();
         Assertions.assertArrayEquals(expected, actual);
@@ -30,7 +26,6 @@ public class RepositoryTest {
     @Test
     public void testAddOneItem() {
         Repository repository = new Repository();
-
         repository.add(item1);
         Item[] expected = new Item[]{item1};
         Item[] actual = repository.findAll();
@@ -169,21 +164,23 @@ public class RepositoryTest {
         Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void testFindLastAboveLimit() {
         Repository repository = new Repository(7);
         repository.add(item1);
         repository.add(item2);
-        Item[] expected = null;
+        Item[] expected = new Item[]{item2, item1};
         Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
+
     @Test
     public void testFindLastBelowLimit() {
         Repository repository = new Repository(-2);
         repository.add(item1);
         repository.add(item2);
-        Item[] expected = null;
+        Item[] expected = new Item[]{item2, item1};
         Item[] actual = repository.findLast();
         Assertions.assertArrayEquals(expected, actual);
     }
